@@ -7,3 +7,24 @@ html {
 ::before {
   box-sizing: inherit;
 }
+
+.list {
+  list-style: none;
+}
+
+.list__task--done {
+  text-decoration: line-through;
+}
+
+.button {
+  height: 25px;
+  width: 25px;
+  background-color: hsl(120, 100%, 25%);
+  color: white;
+  padding: 2px;
+  border: none;
+}
+
+.button--remove {
+  background-color: hsl(0, 100%, 50%);
+}
