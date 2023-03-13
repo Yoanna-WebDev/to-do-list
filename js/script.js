@@ -6,9 +6,23 @@
     render();
   };
 
+  const removeTask = (taskIndex) => {
+    tasks.splice(taskIndex, 1);
+    render();
+  };
+
   const toggleTaskDone = (taskIndex) => {
     tasks[taskIndex].done = !tasks[taskIndex].done;
     render();
+  };
+
+  const removeButtons = () => {
+    const removeButtons = document.querySelectorAll(".js-remove");
+    removeButtons.forEach((removeButton, index) => {
+      removeButton.addEventListener("click", () => {
+        removeTask(index);
+      });
+    });
   };
 
   const toggleDoneButtons = () => {
@@ -28,10 +42,12 @@
       <span class="list__task ${task.done ? "list__task--done" : ""}">${
         task.addTask
       }</span>
+      <button class="button button--remove js-remove ">🗑</button>
       </li>`;
     }
     document.querySelector(".js-list").innerHTML = htmlString;
     toggleDoneButtons();
+    removeButtons();
   };
 
   const onFormSumbit = (event) => {
