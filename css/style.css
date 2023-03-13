@@ -28,3 +28,7 @@ html {
 .button--remove {
   background-color: hsl(0, 100%, 50%);
 }
+
+.from__input {
+  cursor: default;
+}

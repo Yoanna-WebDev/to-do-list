@@ -50,8 +50,16 @@
     removeButtons();
   };
 
+  const inputFocus = () => {
+    const input = document.querySelector(".js-addTask");
+    input.focus();
+  };
+
   const onFormSumbit = (event) => {
     event.preventDefault();
+
+    inputFocus();
+
     const addTask = document.querySelector(".js-addTask").value.trim();
     if (addTask === "") {
       return;
