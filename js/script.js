@@ -50,21 +50,27 @@
     removeButtons();
   };
 
-  const inputFocus = () => {
-    const input = document.querySelector(".js-addTask");
+  const inputReset = (input) => {
+    input.value = "";
+  };
+
+  const inputFocus = (input) => {
     input.focus();
   };
 
   const onFormSumbit = (event) => {
     event.preventDefault();
 
-    inputFocus();
+    const input = document.querySelector(".js-addTask");
+    inputFocus(input);
 
-    const addTask = document.querySelector(".js-addTask").value.trim();
+    const addTask = input.value.trim();
     if (addTask === "") {
       return;
     }
     addNewTask(addTask);
+
+    inputReset(input);
   };
 
   const init = () => {
