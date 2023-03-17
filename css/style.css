@@ -30,6 +30,11 @@ html {
   border: none;
 }
 
+.button:active {
+  border: 2px solid hsl(0, 0%, 0%);
+  border-radius: 3px;
+}
+
 .button--remove {
   background-color: hsl(0, 100%, 50%);
 }
