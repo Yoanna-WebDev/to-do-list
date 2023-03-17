@@ -8,6 +8,11 @@ html {
   box-sizing: inherit;
 }
 
+.body {
+  font-family: "Montserrat", sans-serif;
+  background-color: hsl(0, 0%, 93%);
+}
+
 .list {
   list-style: none;
 }
@@ -29,6 +34,13 @@ html {
   background-color: hsl(0, 100%, 50%);
 }
 
-.from__input {
+.form__input {
   cursor: default;
+}
+
+.form__button {
+  background-color: hsl(187, 100%, 25%);
+  color: hsl(0, 0%, 100%);
+  border: none;
+  padding: 10px;
 }
