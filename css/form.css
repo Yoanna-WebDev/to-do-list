@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  background-color: white;
+  padding: 20px;
+}
+
+.form__input {
+  flex-grow: 1;
+  cursor: default;
+  height: 45px;
+  padding: 10px;
+  border: 2px solid hsl(0, 0%, 93%);
+}
+
+.form__button {
+  height: 45px;
+  width: 140px;
+  background-color: hsl(187, 100%, 25%);
+  color: hsl(0, 0%, 100%);
+  margin-left: 15px;
+  border: none;
+}
