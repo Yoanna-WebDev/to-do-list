@@ -1,7 +1,7 @@
 .main {
   display: grid;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   grid-template-columns: minmax(auto, 800px);
   grid-template-rows: 60px 150px minmax(auto, 1fr);
   grid-gap: 15px;
@@ -16,6 +16,11 @@
     justify-content: flex-start;
     align-items: flex-start;
   }
+}
+
+.header__title {
+  margin: 0px;
+  padding: 20px 0px 0px 0px;
 }
 
 .section {
@@ -33,12 +38,6 @@
 
 .section__header {
   background-color: white;
-  margin: 0;
-  padding: 20px;
-}
-
-.section__container {
-  background-color: white;
-  min-height: 50px;
+  margin: 0px;
   padding: 20px;
 }
