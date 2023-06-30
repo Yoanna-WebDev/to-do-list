@@ -1,42 +1,39 @@
 .form {
   display: flex;
-  background-color: white;
+  flex-wrap: wrap;
   padding: 20px;
-}
-
-@media (max-width: 767px) {
-  .form {
-    flex-wrap: wrap;
-  }
 }
 
 .form__input {
   flex-grow: 1;
-  cursor: default;
-  height: 45px;
   padding: 10px;
-  border: 2px solid hsl(0, 0%, 93%);
+  border: 2px solid hsl(0 0% 90% / 1);
 }
 
 @media (max-width: 767px) {
   .form__input {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 }
 
 .form__button {
-  height: 45px;
-  width: 140px;
+  padding: 10px;
+  margin-left: 20px;
   background-color: hsl(187, 100%, 25%);
   color: hsl(0, 0%, 100%);
-  margin-left: 15px;
   border: none;
+  transition: 1s;
+}
+
+.form__button:hover {
+  background-color: hsl(187, 100%, 35%);
+  transform: scale(1.1);
 }
 
 @media (max-width: 767px) {
   .form__button {
     flex-grow: 1;
-    margin: 0 auto;
     flex-basis: 100%;
+    margin: 0px;
   }
 }

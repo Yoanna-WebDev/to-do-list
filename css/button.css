@@ -1,18 +1,26 @@
 .button {
-  height: 30px;
-  width: 30px;
+  min-height: 25px;
+  min-width: 25px;
   background-color: hsl(120, 100%, 25%);
-  color: white;
-  padding: 2px;
-  border: none;
+  color: hsl(0, 0%, 100%);
+  border-style: none;
+  border-radius: 2px;
   margin: 10px;
+  transition: 1s;
+}
+
+.button:hover {
+  background-color: hsl(120, 100%, 35%);
 }
 
 .button:active {
   border: 2px solid hsl(0, 0%, 0%);
-  border-radius: 3px;
 }
 
 .button--remove {
   background-color: hsl(0, 100%, 50%);
+}
+
+.button--remove:hover {
+  background-color: hsl(0, 100%, 70%);
 }
