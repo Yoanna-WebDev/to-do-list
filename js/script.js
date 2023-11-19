@@ -40,7 +40,9 @@
     for (const task of tasks) {
       htmlString += `
     <li 
-     class="list__item"
+     class="list__item ${
+       task.done && hideDoneTasks === true ? "list__item--hidden" : ""
+     }"
     >
      <button class="button js-done">
       ${task.done ? "✔" : ""}
@@ -58,10 +60,17 @@
 
   const renderButtons = () => {
     let htmlButtons = "";
+
     if (tasks.length > 0) {
       htmlButtons += `
-      <button class="section__button">Ukryj ukończone</button>
-      <button class="section__button">Ukończ wszystkie</button>
+      <button class="section__button">${
+        tasks.some(({ done }) => done) && hideDoneTasks === true
+          ? "Pokaż"
+          : "Ukryj"
+      } ukończone</button>
+      <button class="section__button ${
+        tasks.every(({ done }) => done) ? "disabled" : ""
+      }">Ukończ wszystkie</button>
       `;
       document.querySelector(".js-section__subHeader").innerHTML = htmlButtons;
     } else {
