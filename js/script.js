@@ -3,17 +3,19 @@
   let hideDoneTasks = false;
 
   const addNewTask = (addTask) => {
-    tasks.push({ addTask });
+    tasks = [...tasks, { addTask }];
     render();
   };
 
   const removeTask = (taskIndex) => {
-    tasks.splice(taskIndex, 1);
+    tasks = [...tasks.slice(0, taskIndex), ...tasks.slice(taskIndex + 1)];
     render();
   };
 
-  const toggleTaskDone = (taskIndex) => {
-    tasks[taskIndex].done = !tasks[taskIndex].done;
+  const toggleTaskDone = (index) => {
+    tasks = tasks.map((task, taskIndex) =>
+      index === taskIndex ? { ...task, done: !task.done } : task
+    );
     render();
   };
 
