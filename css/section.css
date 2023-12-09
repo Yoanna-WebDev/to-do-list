@@ -67,3 +67,7 @@
 .disabled {
   color: hsl(0, 0%, 80%);
 }
+
+.list__item--hidden {
+  display: none;
+}
