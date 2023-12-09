@@ -2,6 +2,16 @@
   let tasks = [];
   let hideDoneTasks = false;
 
+  const switchBoolean = () => {
+    hideDoneTasks = !hideDoneTasks;
+    render();
+  };
+
+  const markAllTasksDone = () => {
+    tasks = tasks.map((task) => ({ ...task, done: true }));
+    render();
+  };
+
   const addNewTask = (addTask) => {
     tasks = [...tasks, { addTask }];
     render();
@@ -42,8 +52,8 @@
     for (const task of tasks) {
       htmlString += `
     <li 
-     class="list__item ${
-       task.done && hideDoneTasks === true ? "list__item--hidden" : ""
+     class="list__item${
+       task.done && hideDoneTasks === true ? " list__item--hidden" : ""
      }"
     >
      <button class="button js-done">
@@ -65,30 +75,46 @@
 
     if (tasks.length > 0) {
       htmlButtons += `
-      <button class="section__button">${
+      <button class="section__button js-hideAllTasksButton">${
         tasks.some(({ done }) => done) && hideDoneTasks === true
           ? "Pokaż"
           : "Ukryj"
       } ukończone</button>
-      <button class="section__button ${
+      <button class="section__button js-finishAllTasksButton ${
         tasks.every(({ done }) => done) ? "disabled" : ""
       }">Ukończ wszystkie</button>
       `;
       document.querySelector(".js-section__subHeader").innerHTML = htmlButtons;
     } else {
     }
-
     bindButtonsEvents();
   };
 
-  const bindButtonsEvents = () => {};
+  const bindButtonsEvents = () => {
+    const hideDoneTasksButton = document.querySelector(
+      ".js-hideAllTasksButton"
+    );
+    const markAllTasksDoneButton = document.querySelector(
+      ".js-finishAllTasksButton"
+    );
+    if (hideDoneTasksButton) {
+      hideDoneTasksButton.addEventListener("click", () => {
+        switchBoolean();
+      });
+    }
+
+    if (markAllTasksDoneButton) {
+      markAllTasksDoneButton.addEventListener("click", () => {
+        markAllTasksDone();
+      });
+    }
+  };
 
   const render = () => {
     renderTasks();
     renderButtons();
     toggleDoneButtons();
     removeButtons();
-    bindButtonsEvents();
   };
 
   const inputReset = (input) => {
