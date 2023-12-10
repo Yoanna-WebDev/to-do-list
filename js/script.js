@@ -84,10 +84,8 @@
         tasks.every(({ done }) => done) ? "disabled" : ""
       }">Ukończ wszystkie</button>
       `;
-      document.querySelector(".js-section__subHeader").innerHTML = htmlButtons;
-    } else {
     }
-    bindButtonsEvents();
+    document.querySelector(".js-section__subHeader").innerHTML = htmlButtons;
   };
 
   const bindButtonsEvents = () => {
@@ -115,6 +113,7 @@
     renderButtons();
     toggleDoneButtons();
     removeButtons();
+    bindButtonsEvents();
   };
 
   const inputReset = (input) => {
