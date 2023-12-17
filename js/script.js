@@ -2,7 +2,7 @@
   let tasks = [];
   let hideDoneTasks = false;
 
-  const switchBoolean = () => {
+  const toggleHideDoneTasks = () => {
     hideDoneTasks = !hideDoneTasks;
     render();
   };
@@ -12,8 +12,8 @@
     render();
   };
 
-  const addNewTask = (addTask) => {
-    tasks = [...tasks, { addTask }];
+  const addNewTask = (newTask) => {
+    tasks = [...tasks, { addTask: newTask }];
     render();
   };
 
@@ -85,7 +85,7 @@
       }">Ukończ wszystkie</button>
       `;
     }
-    document.querySelector(".js-section__subHeader").innerHTML = htmlButtons;
+    document.querySelector(".js-sectionSubHeader").innerHTML = htmlButtons;
   };
 
   const bindButtonsEvents = () => {
@@ -97,7 +97,7 @@
     );
     if (hideDoneTasksButton) {
       hideDoneTasksButton.addEventListener("click", () => {
-        switchBoolean();
+        toggleHideDoneTasks();
       });
     }
 
@@ -121,7 +121,7 @@
   };
 
   const setFocus = (input) => {
-    const button = document.querySelector(".js-form__button");
+    const button = document.querySelector(".js-formButton");
     button.addEventListener("click", () => {
       input.focus();
     });
