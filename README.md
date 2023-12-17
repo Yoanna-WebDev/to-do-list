@@ -24,3 +24,4 @@ The technologies used in the project:
 - Media Query
 - GIT
 - Markdown
+- Immutability
